@@ -1,4 +1,4 @@
-# supermarket_frontend
+# gopit_frontend
 
 ## Project setup
 ```
