@@ -93,11 +93,11 @@
                         let role = data.role;
 
                         if(role.toLowerCase() === 'admin'){
-                                router.push('admininstruktur');
+                                router.push('admin');
                             }else if(role.toLowerCase() === 'kasir'){
-                                router.push('kasirMember');
+                                router.push('kasir');
                             }else if(role.toLowerCase() === 'mo'){
-                                router.push('mojadwalumum');
+                                router.push('mo');
                             }
                         }
 
