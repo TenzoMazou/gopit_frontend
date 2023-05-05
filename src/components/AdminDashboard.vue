@@ -26,7 +26,6 @@
                 </div>
             </nav>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <!-- View Route -->
                 <router-view></router-view>
             </main>
         </div>
@@ -88,6 +87,12 @@
         font-size: 0.875rem;
     }
 
+    body {
+        background: #ecf0f3;
+        background-image: url("@/assets/background.jpg");
+        background-size:100%
+    }
+    
     .feather {
         width: 16px;
         height: 16px;
@@ -98,6 +103,11 @@
 * Sidebar
 */
     .sidebar {
+        background-image: url("@/assets/wallpaperbetter\ \(1\).jpg");
+        background-size: contain;
+        background-size:cover;
+        background-position-x:center;
+        background-position-y: 0cqmax;
         position: fixed;
         top: 0;
         bottom: 0;

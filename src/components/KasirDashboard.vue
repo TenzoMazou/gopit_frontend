@@ -13,14 +13,14 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <router-link :to="{ name: 'kasir.member.index' }" class="nav-link">Member</router-link>
+                            <router-link :to="{ name: 'kasir.member.index' }" class="nav-link" style="color: white;">Member</router-link>
                         </li>
                     </ul>
                 </div>
                 <div class="position-bottom pt-3">
                     <ul>
                         <li class="nav-item">
-                            <router-link @click.prevent="logout()" :to="{ name: 'welcome' }" class="nav-link">Log Out</router-link>
+                            <router-link @click.prevent="logout()" :to="{ name: 'welcome' }" class="nav-link" style="color: white;">Log Out</router-link>
                         </li>                        
                     </ul>
                 </div>
@@ -87,6 +87,10 @@
         font-size: 0.875rem;
     }
 
+    body {
+        background: #ecf0f3;
+    }
+    
     .feather {
         width: 16px;
         height: 16px;
@@ -97,6 +101,7 @@
 * Sidebar
 */
     .sidebar {
+        background-image: url("@/assets/wallpaperbetter.jpg");
         position: fixed;
         top: 0;
         bottom: 0;

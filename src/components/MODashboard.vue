@@ -15,6 +15,9 @@
                         <li class="nav-item">
                             <router-link :to="{ name: 'mo.jadwalumum.index' }" class="nav-link">Jadwal Umum</router-link>
                         </li>
+                        <li class="nav-item">
+                            <router-link :to="{ name: 'mo.jadwalumum.index' }" class="nav-link">Jadwal Umum</router-link>
+                        </li>
                     </ul>
                 </div>
                 <div class="position-bottom pt-3">

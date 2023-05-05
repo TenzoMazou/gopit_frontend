@@ -138,6 +138,11 @@ const routes = [
                 name: "mo.jadwalumum.edit",
                 component: () => import("@/views/manajerOperasional/jadwalUmum/editPage.vue"),
             },
+            {
+                path: "/mojadwalharian",
+                name: "mo.jadwalharian.index",
+                component: () => import("@/views/manajerOperasional/jadwalHarian/indexPage.vue"),
+            },
         ],
     }
 ]
