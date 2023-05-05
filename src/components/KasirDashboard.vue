@@ -89,6 +89,8 @@
 
     body {
         background: #ecf0f3;
+        background-image: url("@/assets/wallpaperbetter\ \(3\).jpg");
+        background-size:100%
     }
     
     .feather {
@@ -100,8 +102,11 @@
     /*
 * Sidebar
 */
-    .sidebar {
-        background-image: url("@/assets/wallpaperbetter.jpg");
+.sidebar {
+        /* background-image: url("@/assets/wallpaperbetter\ \(2\).jpg");
+        background-size:cover;
+        background-position-x:center;
+        background-position-y: 0cqmax; */
         position: fixed;
         top: 0;
         bottom: 0;

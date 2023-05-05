@@ -13,10 +13,10 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <router-link :to="{ name: 'mo.jadwalumum.index' }" class="nav-link">Jadwal Umum</router-link>
+                            <router-link :to="{ name: 'mo.jadwalumum.index' }" class="nav-link"><strong>Jadwal Umum</strong></router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link :to="{ name: 'mo.jadwalumum.index' }" class="nav-link">Jadwal Umum</router-link>
+                            <router-link :to="{ name: 'mo.jadwalharian.index' }" class="nav-link">Jadwal Harian</router-link>
                         </li>
                     </ul>
                 </div>
@@ -89,6 +89,9 @@
 <style>
     body {
         font-size: 0.875rem;
+        background: #ecf0f3;
+        background-image: url("@/assets/wallpaperbetter\ \(3\).jpg");
+        background-size:100%
     }
 
     .feather {
@@ -101,6 +104,10 @@
 * Sidebar
 */
     .sidebar {
+        /* background-image: url("@/assets/wallpaperbetter\ \(2\).jpg");
+        background-size:cover;
+        background-position-x:center;
+        background-position-y: 0cqmax; */
         position: fixed;
         top: 0;
         bottom: 0;

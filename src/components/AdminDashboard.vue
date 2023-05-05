@@ -13,14 +13,14 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <router-link :to="{ name: 'admin.instruktur.index' }" class="nav-link">Instruktur</router-link>
+                            <router-link :to="{ name: 'admin.instruktur.index' }" class="nav-link" style="color: white;">Instruktur</router-link>
                         </li>
                     </ul>
                 </div>
                 <div class="position-bottom pt-3">
                     <ul>
                         <li class="nav-item">
-                            <router-link @click.prevent="logout()" :to="{ name: 'welcome' }" class="nav-link">Log Out</router-link>
+                            <router-link @click.prevent="logout()" :to="{ name: 'welcome' }" class="nav-link" style="color: white;">Log Out</router-link>
                         </li>                        
                     </ul>
                 </div>
@@ -89,7 +89,7 @@
 
     body {
         background: #ecf0f3;
-        background-image: url("@/assets/background.jpg");
+        background-image: url("@/assets/wallpaperbetter\ \(3\).jpg");
         background-size:100%
     }
     
@@ -103,11 +103,10 @@
 * Sidebar
 */
     .sidebar {
-        background-image: url("@/assets/wallpaperbetter\ \(1\).jpg");
-        background-size: contain;
+        /* background-image: url("@/assets/wallpaperbetter\ \(2\).jpg");
         background-size:cover;
         background-position-x:center;
-        background-position-y: 0cqmax;
+        background-position-y: 0cqmax; */
         position: fixed;
         top: 0;
         bottom: 0;
