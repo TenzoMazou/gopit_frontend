@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex justify-content-between flex-wrap flex-mdnowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">LIST INSTRUKTUR</h1>
+        <h1 class="h2">LIST JADWAL HARIAN</h1>
     </div>
     <div class="container mt-5">
         <div class="row">
@@ -12,16 +12,20 @@
                         <table class="table table-striped table-bordered mt4">
                             <thead class="thead-dark">
                                 <tr class="text-center">
+                                    <!-- <th scope="col">ID</th> -->
                                     <th scope="col">HARI</th>
                                     <th scope="col">NAMA INSTRUKTUR</th>
+                                    <th scope="col">KELAS</th>
                                     <th scope="col">INSTRUKTUR PENGGANTI</th>
                                     <th scope="col">STATUS</th>
                                 </tr>
                             </thead>
                             <tbody> 
                                 <tr v-for="(jadwalharian, id) in jadwalharian" :key="id" class="text-center">
+                                    <!-- <td>{{ jadwalharian.id }}</td> -->
                                     <td>{{ formatDate(jadwalharian.tanggal_kelas) }}</td>
                                     <td>{{ jadwalharian.nama }}</td>
+                                    <td>{{ jadwalharian.nama_kelas }}</td>
                                     <td>{{ jadwalharian.instruktur_pengganti }}</td>
                                     <td>{{ jadwalharian.status }}</td>
                                     <td class="text-center">

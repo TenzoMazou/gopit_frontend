@@ -1,8 +1,8 @@
 <template>
     <div class="wrapper">
-        <div class="logo">
+        <!-- <div class="logo">
             <img src="https://64.media.tumblr.com/28a1ed7181aefca40749f41bb4f3e877/tumblr_pu31f14vpM1rcufwuo3_540.gif" alt="">
-        </div>
+        </div> -->
         <div class="text-center mt-4 name">
             Gofit Administrator
         </div>
@@ -27,6 +27,7 @@
                 <div v-if="validation.password" class="mt-2 alert alert-danger">
                     {{ validation.password[0] }}
                 </div>
+                <br>
                 <!-- <button type="submit" class="btn mt-3">Login</button> -->
                 <v-btn type="submit" block rounded="xl" color="blue">LOGIN</v-btn>
             </div>
@@ -145,13 +146,13 @@
 
     body {
         background: #ecf0f3;
-        /* background-image: url("https://media.tenor.com/0weeqPoyCWIAAAAd/how-heavy-are-the-dumbbells-that-you-lift-dumbbell-nan-kilo-moteru.gif");
-        background-size:100% */
+        background-image: url("@/assets/wallpaperbetter\ \(5\).jpg");
+        background-size:100%
     }
 
     .wrapper {
         max-width: 350px;
-        min-height: 500px;
+        min-height: 380px;
         margin: 80px auto;
         padding: 40px 30px 30px 30px;
         background-color: #ecf0f3;
