@@ -13,14 +13,14 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <router-link :to="{ name: 'admin.instruktur.index' }" class="nav-link" style="color: white;">Instruktur</router-link>
+                            <router-link :to="{ name: 'admin.instruktur.index' }" class="nav-link">Instruktur</router-link>
                         </li>
                     </ul>
                 </div>
                 <div class="position-bottom pt-3">
                     <ul>
                         <li class="nav-item">
-                            <router-link @click.prevent="logout()" :to="{ name: 'welcome' }" class="nav-link" style="color: white;">Log Out</router-link>
+                            <router-link @click.prevent="logout()" :to="{ name: 'welcome' }" class="nav-link">Log Out</router-link>
                         </li>                        
                     </ul>
                 </div>

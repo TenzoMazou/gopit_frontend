@@ -1,17 +1,17 @@
 <template>
-    <div class="card">
-  <div class="card-body">
-    <h5 class="card-title">GOFIT</h5>
-    <p>Jl. Qlipoth Tree No 5 Yogyakarta</p>
-    <h5 class="card-title">Member Card</h5>
-    <p class="card-text" v-for="(member, index) in members" :key="index">
-    <strong>ID MEMBER : {{ formatMemberId(member.id_member, member.Tanggal_Daftar) }}</strong><br>
-      <strong>Nama  : {{ member.nama_member }}</strong> <br>
-      <strong>Umur  : {{ member.umur }}</strong> <br>
-      <strong>Email : {{ member.email }}</strong> <br>
-    </p>
-    <button @click="generatePDF" class="btn btn-sm btn-primary mr-1">Generate PDF</button>
-  </div>
+  <div class="card border" style="width: 50%;">
+    <div class="card-body">
+      <h5 class="card-title">GOFIT</h5>
+      <p>Jl. Qlipoth Tree No 5 Yogyakarta</p>
+      <h5 class="card-title">Member Card</h5>
+      <p class="card-text" v-for="(member, index) in members" :key="index">
+      <strong>ID MEMBER : {{ formatMemberId(member.id_member, member.Tanggal_Daftar) }}</strong><br>
+        <strong>Nama  : {{ member.nama_member }}</strong> <br>
+        <strong>Umur  : {{ member.umur }}</strong> <br>
+        <strong>Email : {{ member.email }}</strong> <br>
+      </p>
+      <button @click="generatePDF" class="btn btn-sm btn-primary mr-1">Generate PDF</button>
+    </div>
 </div>
   </template>
   
@@ -24,20 +24,46 @@
   export default {
     setup() {
 
-        const generatePDF = () => {
+      const generatePDF = () => {
         if (members.length > 0) {
-                const doc = new jsPDF();
-                doc.text('GOFIT', 10, 10);
-                doc.text('Jl. Qlipoth Tree No 5 Yogyakarta', 10, 20);
-                doc.text('Member Card', 10, 30);
-                doc.text('ID MEMBER: ' + formatMemberId(members[0].id_member, members[0].Tanggal_Daftar), 10, 40);
-                doc.text('Nama: ' + members[0].nama_member, 10, 50);
-                doc.text('Umur: ' + members[0].umur, 10, 60);
-                doc.text('Email: ' + members[0].email, 10, 70);
-                doc.autoPrint();
-                doc.save('member-card.pdf');
-            }
-        };
+          const doc = new jsPDF();
+          const cardWidth = 85; // mm
+          const cardHeight = 55; // mm
+          const margin = 10; // mm
+          const x = margin;
+          const y = margin;
+          const contentWidth = cardWidth + 2.5 * margin;
+          const contentHeight = cardHeight + 1.5 * margin;
+
+          // Draw border around card
+          doc.rect(x, y, contentWidth, contentHeight);
+
+          // Add content to card
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(16); // Set font size to 16
+          doc.text('GOFIT', 15, y + margin);
+          doc.setFontSize(12); // Set font size to 16
+          doc.setFont('helvetica', 'normal');
+          doc.text('Jl. Qlipoth Tree No 5 Yogyakarta', 15, y + margin + 7);
+          doc.setFontSize(16); // Set font size to 20
+          doc.setFont('helvetica', 'bold');
+          doc.text('Member Card', 15, y + margin + 17);
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(12); // Set font size back to 12
+          doc.text(
+            'ID MEMBER  : ' + formatMemberId(members[0].id_member, members[0].Tanggal_Daftar),
+            15,
+            y + margin + 27
+          );
+          doc.text('Nama  : ' + members[0].nama_member, 15, y + margin + 37);
+          doc.text('Umur  : ' + members[0].umur, 15, y + margin + 47);
+          doc.text('Email : ' + members[0].email, 15, y + margin + 57);
+
+          // Auto-print and save PDF
+          doc.autoPrint();
+          doc.save('member-card.pdf');
+        }
+      };
 
 
       const members = reactive([]);

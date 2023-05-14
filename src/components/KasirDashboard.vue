@@ -13,14 +13,20 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <router-link :to="{ name: 'kasir.member.index' }" class="nav-link" style="color: white;">Member</router-link>
+                            <router-link :to="{ name: 'kasir.member.index' }" class="nav-link">Member</router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link :to="{ name: 'kasir.member.index' }" class="nav-link">Deposit Reguler</router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link :to="{ name: 'kasir.aktivasi.index' }" class="nav-link">Aktivasi Member</router-link>
                         </li>
                     </ul>
                 </div>
                 <div class="position-bottom pt-3">
                     <ul>
                         <li class="nav-item">
-                            <router-link @click.prevent="logout()" :to="{ name: 'welcome' }" class="nav-link" style="color: white;">Log Out</router-link>
+                            <router-link @click.prevent="logout()" :to="{ name: 'welcome' }" class="nav-link">Log Out</router-link>
                         </li>                        
                     </ul>
                 </div>

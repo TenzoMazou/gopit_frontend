@@ -18,6 +18,9 @@
                         <li class="nav-item">
                             <router-link :to="{ name: 'mo.jadwalharian.index' }" class="nav-link">Jadwal Harian</router-link>
                         </li>
+                        <li class="nav-item">
+                            <router-link :to="{ name: 'mo.ijininstruktur.index' }" class="nav-link">Ijin Instruktur</router-link>
+                        </li>
                     </ul>
                 </div>
                 <div class="position-bottom pt-3">

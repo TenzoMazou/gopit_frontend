@@ -115,7 +115,32 @@ const routes = [
                 path: "/kasir/membercard",
                 name: "kasir.nembercard.view",
                 component: () => import("@/views/Kasir/Member/memberCard.vue")
-            }
+            },
+            {
+                path: "/kasir/depositRegulerIndex",
+                name: "kasir.depouang.index",
+                component: () => import("@/views/Kasir/depoUang/indexPage.vue")
+            },
+            {
+                path: "/kasir/depouang",
+                name: "kasir.depouang.create",
+                component: () => import("@/views/Kasir/depoUang/createPage.vue")
+            },
+            {
+                path: "/kasir/aktivasi/index",
+                name: "kasir.aktivasi.index",
+                component: () => import("@/views/Kasir/aktivasi/indexPage.vue")
+            },
+            // {
+            //     path: "/kasir/aktivasi/create",
+            //     name: "kasir.aktivasi.create",
+            //     component: () => import("@/views/Kasir/aktivasi/createPage.vue")
+            // },
+            // {
+            //     path: "/kasir/strukuang",
+            //     name: "kasir.depouang.struk",
+            //     component: () => import("@/views/Kasir/depoUang/strukPage.vue")
+            // }
         ],
     },
     {
@@ -142,6 +167,16 @@ const routes = [
                 path: "/mojadwalharian",
                 name: "mo.jadwalharian.index",
                 component: () => import("@/views/manajerOperasional/jadwalHarian/indexPage.vue"),
+            },
+            {
+                path: "/mojadwalharian/edit",
+                name: "mo.jadwalharian.edit",
+                component: () => import("@/views/manajerOperasional/jadwalHarian/editPage.vue"),
+            },
+            {
+                path: "/moIjinInstrukturindex",
+                name: "mo.ijininstruktur.index",
+                component: () => import("@/views/manajerOperasional/ijinInstruktur/indexPage.vue"),
             },
         ],
     }

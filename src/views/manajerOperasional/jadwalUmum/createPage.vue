@@ -8,12 +8,12 @@
                         <hr />
                         <form @submit.prevent="store">
                             <div class="form-group mb-3">
-                                <label class="form-label">Tanggal</label>
-                                <input type="date" class="form-control" v-model="jadwalumum.Tanggal"
-                                    placeholder="Masukkan Tanggal" />
+                                <label class="form-label">Hari</label>
+                                <input type="text" class="form-control" v-model="jadwalumum.hari"
+                                    placeholder="Masukkan Hari" />
                                 <!-- validation -->
-                                <div v-if="validation.nama" class="mt-2 alert alert-danger">
-                                    {{ validation.nama[0] }}
+                                <div v-if="validation.hari" class="mt-2 alert alert-danger">
+                                    {{ validation.hari[0] }}
                                 </div>
                             </div>
                             <div class="form-group mb-3">
@@ -44,7 +44,7 @@
                                     <select class="form-control" v-model="jadwalumum.nama">
                                     <option value="" selected hidden disabled>Pilih Instruktur</option>
                                     <option value="John WIck">John Wick</option>
-                                    <option value="Helen">Helen</option>
+                                    <option value="Lady">Lady</option>
                                     <option value="Vergil">Vergil</option>
                                     <option value="Helen">Helen</option>
                                     
@@ -87,7 +87,7 @@
         setup() {
             //state instruktur
             const jadwalumum = reactive({
-                Tanggal: "",
+                hari: "",
                 nama_kelas: "",
                 nama: "",
                 Jam: "",
@@ -103,7 +103,7 @@
             //method store
             function store(){
                 let jadwalumum = new FormData();
-                jadwalumum.append('Tanggal', this.jadwalumum.Tanggal);
+                jadwalumum.append('hari', this.jadwalumum.hari);
                 jadwalumum.append('nama_kelas', this.jadwalumum.nama_kelas);
                 jadwalumum.append('nama', this.jadwalumum.nama);
                 jadwalumum.append('Jam', this.jadwalumum.Jam);
