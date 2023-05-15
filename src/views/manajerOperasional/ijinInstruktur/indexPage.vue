@@ -44,18 +44,24 @@
                                     <td>{{ ijinInstruktur.tanggal_izin }}</td>
                                     <td>{{ ijinInstruktur.alasan }}</td>
                                     <td class="text-center">
-                                        <!-- <router-link :to="{ name: 'admin.instruktur.edit', params: { 
-                                            id: ijinInstruktur.id,
-                                            } }" 
-                                        class="btn btn-sm btn-primary mr-1"><v-icon size="15">mdi-pencil</v-icon>EDIT</router-link> -->
-                                        <!-- &nbsp; -->
-                                        <button @click.prevent="ConfirmStatus(ijinInstruktur.id)" class="btn btn-sm btn-danger ml-1">Confirm Status</button>
+                                        <!-- <button @click.prevent="ConfirmStatus(ijinInstruktur.id)" class="btn btn-sm btn-danger ml-1">Confirm Status</button> -->
+                                        <button @click.prevent="showDialog = true; selectedIjinInstruktur = ijinInstruktur" class="btn btn-sm btn-danger ml-1">Confirm Status</button>
                                     </td>
                                 </tr>   
                             </tbody>
                         </table>
                     </div>
                 </div>
+                <v-dialog v-model="showDialog" max-width="500px">
+                    <v-card>
+                        <v-card-title>Confirm Status</v-card-title>
+                        <v-card-text> Are you sure you want to confirm the status of this user?</v-card-text>
+                        <v-card-actions>
+                            <v-btn color="red" text @click="showDialog = false">Cancel</v-btn>
+                            <v-btn color="green" @click="ConfirmStatus(selectedIjinInstruktur.id)">Confirm</v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-dialog>
             </div>
         </div>
     </div>
@@ -66,6 +72,12 @@ import { onMounted, ref,computed } from 'vue'
 // import { useRouter } from "vue-router"
 import { useToast } from "vue-toastification";
 export default {
+    data() {
+        return {
+            showDialog: false,
+            selectedIjinInstruktur: null,
+        }
+    },
     setup() {
         const ijinInstruktur = ref([])
 
@@ -119,59 +131,44 @@ export default {
     // }
 
     async function ConfirmStatus(id) {
-    try {
-        const res = await axios.get(`http://192.168.100.111/p3l/gopit_backend/public/ijininstruktur/${id}`);
-        if (res.data.data.length === 0) {
-        throw new Error(`Item with id ${id} not found`);
-        }
-        const ijinInstruktur = res.data.data[0];
-        ijinInstruktur.status_ijin = 'confirmed';
-
-        await axios.put(`http://192.168.100.111/p3l/gopit_backend/public/ijininstruktur/${id}`, ijinInstruktur);
-
-        // Update status_kelas of jadwal_harian if ijin_instruktur is confirmed
-        if (ijinInstruktur.status_ijin.toLowerCase() === 'confirmed') {
-        const jadwalHarianRes = await axios.get(`http://192.168.100.111/p3l/gopit_backend/public/jadwalharian`);
-        const jadwalHarian = jadwalHarianRes.data.data;
-
-        jadwalHarian.forEach(async (item) => {
-            if (item.id_jadwal === ijinInstruktur.id_jadwal && item.tanggal_izin === ijinInstruktur.tanggal_izin) {
-                item.status_kelas = 'Libur';
-                await axios.put(`http://192.168.100.111/p3l/gopit_backend/public/jadwalharian/${item.id}`, item);
+        let ijinInstruktur;
+        try {
+            if (!id) {
+                throw new Error(`Invalid id: ${id}`);
             }
+            const res = await axios.get(`http://192.168.100.111/p3l/gopit_backend/public/ijininstruktur/${id}`);
+            if (res.data.data.length === 0) {
+            throw new Error(`Item with id ${id} not found`);
+            }
+            const ijinInstruktur = res.data.data[0];
+            ijinInstruktur.status_ijin = 'confirmed';
+
+            await axios.put(`http://192.168.100.111/p3l/gopit_backend/public/ijininstruktur/${id}`, ijinInstruktur);
+
+            // Update status_kelas of jadwal_harian if ijin_instruktur is confirmed
+            if (ijinInstruktur.status_ijin.toLowerCase() === 'confirmed') {
+            const jadwalHarianRes = await axios.get(`http://192.168.100.111/p3l/gopit_backend/public/jadwalharian`);
+            const jadwalHarian = jadwalHarianRes.data.data;
+
+            jadwalHarian.forEach(async (item) => {
+                if (item.id_jadwal === ijinInstruktur.id_jadwal && item.tanggal_izin === ijinInstruktur.tanggal_izin) {
+                    item.status_kelas = 'Libur';
+                    await axios.put(`http://192.168.100.111/p3l/gopit_backend/public/jadwalharian/${item.id}`, item);
+                }
+                });
+            }
+            toast.success("Berhasil Confirm Status !",{
+            timeout: 2000
+            });
+            // this.showDialog = false;
+        } catch (error) {
+            console.log(ijinInstruktur?.value?.id);
+            console.error(error);
+            toast.error(error.message, {
+            timeout: 2000
             });
         }
-        toast.success("Berhasil Confirm Status !",{
-        timeout: 2000
-        });
-    } catch (error) {
-        console.error(error);
-        toast.error(error.message, {
-        timeout: 2000
-        });
-    }
-    }
-
-        //method delete
-        // function instrukturDelete(id) {
-
-        //     axios.delete(`http://192.168.100.111/p3l/gopit_backend/public/instruktur/${id_instruktur}`)
-        //     .then(() => {
-        //     instruktur.value.splice(instruktur.value.indexOf(id_instruktur));
-        //     localStorage.setItem("showToast", "true"); // Set flag to show toast
-        //     window.location.reload();
-        //     }).catch(error => {
-        //         console.log(error.response.data);
-        //     })
-        // }
-        // // Check for the flag and show the toastification if it's set
-        // if (localStorage.getItem("showToast")) {
-        //     toast.error("Berhasil Hapus Instruktur !",{
-        //         timeout: 2000
-        //     });
-        //     localStorage.removeItem("showToast"); // Remove the flag
-        // }
-        
+    }       
         return {
             ijinInstruktur,
             // filteredijinInstruktur,

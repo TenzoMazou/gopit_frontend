@@ -74,7 +74,7 @@ export default {
         })
 
         const editStatus = async (jadwalharian) => {
-            const newStatus = 'libur'; // set the new status to 'libur'
+            const newStatus = 'Libur'; // set the new status to 'libur'
             jadwalharian.status_kelas = newStatus; // update the status of the corresponding jadwalharian object
             try {
                 const response = await axios.put(`http://192.168.100.111/p3l/gopit_backend/public/jadwalharian/${jadwalharian.id}`, { status_kelas: newStatus });
@@ -176,7 +176,7 @@ export default {
     onMounted(async () => {
       const response = await axios.get('http://192.168.100.111/p3l/gopit_backend/public/jadwalharian')
       jadwalharian.value = response.data.data
-      console.log(response.data.jadwalharian)
+      console.log(response.data.data)
       isScheduleGenerated.value = response.data.isScheduleGenerated // update isScheduleGenerated value when component is mounted
     })
         
