@@ -15,7 +15,7 @@
                             <thead class="thead-dark">
                                 <tr class="text-center">
                                     <!-- <th scope="col">ID</th> -->
-                                    <th scope="col">HARI</th>
+                                    <th scope="col">TANGGAL</th>
                                     <th scope="col">NAMA INSTRUKTUR</th>
                                     <th scope="col">KELAS</th>
                                     <th scope="col">STATUS</th>
@@ -68,7 +68,12 @@ export default {
 
         const formatDate = computed(() => {
         return function(date) {
-                const options = { weekday: 'long' }
+                const options = {   
+                                    weekday: 'long',
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric' 
+                                }
                 return new Date(date).toLocaleDateString('id-ID', options)
             }
         })

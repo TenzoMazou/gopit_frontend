@@ -116,6 +116,7 @@ const routes = [
                 name: "kasir.nembercard.view",
                 component: () => import("@/views/Kasir/Member/memberCard.vue")
             },
+            // Deposit uang
             {
                 path: "/kasir/depositRegulerIndex",
                 name: "kasir.depouang.index",
@@ -126,11 +127,39 @@ const routes = [
                 name: "kasir.depouang.create",
                 component: () => import("@/views/Kasir/depoUang/createPage.vue")
             },
+            //Aktivasi
             {
                 path: "/kasir/aktivasi/index",
                 name: "kasir.aktivasi.index",
                 component: () => import("@/views/Kasir/aktivasi/indexPage.vue")
             },
+            //Presensi GYM
+            {
+                path: "/kasir/presensiGymindex",
+                name: "kasir.presensigym.index",
+                component: () => import("@/views/Kasir/presensiGym/indexPage.vue")
+            },
+            {
+                path: "/kasir/StrukGym",
+                name: "kasir.struk.presensi",
+                component: () => import("@/views/Kasir/presensiGym/strukPresensi.vue")
+            },
+            //PRESENSI KELAS
+            {
+                path: "/kasir/presensiKelas",
+                name: "kasir.presensikelas.index",
+                component: () =>import("@/views/Kasir/presensiKelas/indexPage.vue")
+            },
+            {
+                path: "/kasir/strukKelas",
+                name: "kasir.struk.kelas",
+                component: () => import("@/views/Kasir/presensiKelas/strukPresensiReguler.vue")
+            },
+            {
+                path: "/kasir/strukKelasPaket",
+                name: "kasir.struk.kelasPaket",
+                component: () => import("@/views/Kasir/presensiKelas/strukPresensiPaket.vue")
+            }
             // {
             //     path: "/kasir/aktivasi/create",
             //     name: "kasir.aktivasi.create",
@@ -148,6 +177,7 @@ const routes = [
         name: 'mo.beranda',
         component: () => import('@/components/MODashboard.vue'),
         children: [            
+            //Jadwal UMUM
             {
                 path: "/mojadwalumum",
                 name: "mo.jadwalumum.index",
@@ -163,6 +193,7 @@ const routes = [
                 name: "mo.jadwalumum.edit",
                 component: () => import("@/views/manajerOperasional/jadwalUmum/editPage.vue"),
             },
+            // Jadwal harian
             {
                 path: "/mojadwalharian",
                 name: "mo.jadwalharian.index",
@@ -173,10 +204,16 @@ const routes = [
                 name: "mo.jadwalharian.edit",
                 component: () => import("@/views/manajerOperasional/jadwalHarian/editPage.vue"),
             },
+            // IJIN INSTRUKTUR
             {
                 path: "/moIjinInstrukturindex",
                 name: "mo.ijininstruktur.index",
                 component: () => import("@/views/manajerOperasional/ijinInstruktur/indexPage.vue"),
+            },
+            {
+                path: "/molaporanPendapatanindex",
+                name: "mo.laporanPendapatan.index",
+                component: () => import("@/views/manajerOperasional/laporanPendapatan/indexPage.vue"),
             },
         ],
     }

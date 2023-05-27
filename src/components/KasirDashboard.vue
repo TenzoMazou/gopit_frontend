@@ -15,11 +15,20 @@
                         <li class="nav-item">
                             <router-link :to="{ name: 'kasir.member.index' }" class="nav-link">Member</router-link>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <router-link :to="{ name: 'kasir.member.index' }" class="nav-link">Deposit Reguler</router-link>
                         </li>
                         <li class="nav-item">
+                            <router-link :to="{ name: 'kasir.member.index' }" class="nav-link">Deposit Kelas</router-link>
+                        </li> -->
+                        <li class="nav-item">
                             <router-link :to="{ name: 'kasir.aktivasi.index' }" class="nav-link">Aktivasi Member</router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link :to="{ name: 'kasir.presensigym.index'}" class="nav-link">Presensi Gym</router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link :to="{ name: 'kasir.presensikelas.index'}" class="nav-link">Presensi Kelas</router-link>
                         </li>
                     </ul>
                 </div>

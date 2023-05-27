@@ -13,7 +13,8 @@
                                 <tr class="text-center">
                                     <th scope="col">NAMA INSTRUKTUR</th>
                                     <th scope="col">STATUS IJIN</th>
-                                    <th scope="col">TANGGAL</th>
+                                    <th scope="col">TANGGAL KELAS</th>
+                                    <th scope="col">TANGGAL IJIN</th>
                                     <th scope="col">ALASAN</th>
                                 </tr>
                             </thead>
@@ -21,6 +22,7 @@
                                 <tr v-for="(ijinInstruktur, id) in confirmedUsers" :key="id" class="text-center">
                                     <td>{{ ijinInstruktur.nama }}</td>
                                     <td>{{ ijinInstruktur.status_ijin }}</td>
+                                    <td>{{ ijinInstruktur.tanggal_kelas }}</td>
                                     <td>{{ ijinInstruktur.tanggal_izin }}</td>
                                     <td>{{ ijinInstruktur.alasan }}</td>
                                 </tr>   
@@ -32,7 +34,8 @@
                                 <tr class="text-center">
                                     <th scope="col">NAMA INSTRUKTUR</th>
                                     <th scope="col">STATUS IJIN</th>
-                                    <th scope="col">TANGGAL</th>
+                                    <th scope="col">TANGGAL KELAS</th>
+                                    <th scope="col">TANGGAL IJIN</th>
                                     <th scope="col">ALASAN</th>
                                     <th scope="col">ACTION</th>
                                 </tr>
@@ -41,7 +44,8 @@
                                 <tr v-for="(ijinInstruktur, id) in notConfirmedUsers" :key="id" class="text-center">
                                     <td>{{ ijinInstruktur.nama }}</td>
                                     <td>{{ ijinInstruktur.status_ijin }}</td>
-                                    <td>{{ ijinInstruktur.tanggal_izin }}</td>
+                                    <td>{{ ijinInstruktur.tanggal_kelas }}</td>
+                                    <td>{{ formatDate(ijinInstruktur.tanggal_izin) }}</td>
                                     <td>{{ ijinInstruktur.alasan }}</td>
                                     <td class="text-center">
                                         <!-- <button @click.prevent="ConfirmStatus(ijinInstruktur.id)" class="btn btn-sm btn-danger ml-1">Confirm Status</button> -->
@@ -110,6 +114,18 @@ export default {
             })
         })
 
+        const formatDate = computed(() => {
+        return function(date) {
+                const options = {   
+                                    weekday: 'long',
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric' 
+                                }
+                return new Date(date).toLocaleDateString('id-ID', options)
+            }
+        })
+
     // async function ConfirmStatus(id) {
     // try {
     //     const res = await axios.get(`http://192.168.100.111/p3l/gopit_backend/public/ijininstruktur/${id}`);
@@ -168,14 +184,16 @@ export default {
             timeout: 2000
             });
         }
-    }       
+    }
+    
         return {
             ijinInstruktur,
             // filteredijinInstruktur,
             // searchText,
             confirmedUsers,
             notConfirmedUsers,
-            ConfirmStatus
+            ConfirmStatus,
+            formatDate
         }
     }
 }
