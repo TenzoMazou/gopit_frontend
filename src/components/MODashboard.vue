@@ -24,6 +24,15 @@
                         <li class="nav-item">
                             <router-link :to="{ name: 'mo.laporanPendapatan.index' }" class="nav-link">Laporan Pendapatan</router-link>
                         </li>
+                        <li class="nav-item">
+                            <router-link :to="{ name: 'mo.laporanKelas.index' }" class="nav-link">Laporan Kelas</router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link :to="{ name: 'mo.laporanGym.index' }" class="nav-link">Laporan Gym</router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link :to="{ name: 'mo.laporanInstruktur.index' }" class="nav-link">Laporan Instruktur</router-link>
+                        </li>
                     </ul>
                 </div>
                 <div class="position-bottom pt-3">

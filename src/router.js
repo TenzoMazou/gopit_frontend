@@ -215,6 +215,21 @@ const routes = [
                 name: "mo.laporanPendapatan.index",
                 component: () => import("@/views/manajerOperasional/laporanPendapatan/indexPage.vue"),
             },
+            {
+                path: "/molaporanKelasindex",
+                name: "mo.laporanKelas.index",
+                component: () => import("@/views/manajerOperasional/laporanKelas/indexPage.vue"),
+            },
+            {
+                path: "/molaporanGymindex",
+                name: "mo.laporanGym.index",
+                component: () => import("@/views/manajerOperasional/laporanGym/indexPage.vue"),
+            },
+            {
+                path: "/molaporanInstruktur",
+                name: "mo.laporanInstruktur.index",
+                component: () => import("@/views/manajerOperasional/laporanInstruktur/indexPage.vue"),
+            },
         ],
     }
 ]
